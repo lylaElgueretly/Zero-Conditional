@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zero Conditional for Non-Chronological Reports – Year 7</title>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f6fb;--card:#fff;--ink:#16233f;--mute:#52607c;--line:#d5deee;--blue:#1d5fd1;--blueb:#e3edff;--orange:#b45309;--orangeb:#ffedd5;--green:#0f7a4d;--greenb:#d9f5e6;--purple:#7a35c4;--purpleb:#efe3fd;--hl:#ffe45c;--bad:#b42318;--badb:#fde4e1;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e1526;--card:#172038;--ink:#e8eefc;--mute:#9fb0d3;--line:#2c3a5e;--blue:#7fb0ff;--blueb:#1b3260;--orange:#ffb066;--orangeb:#4a2d0f;--green:#5fdc9d;--greenb:#0f3a29;--purple:#c79bff;--purpleb:#35205a;--hl:#6b5b00;--bad:#ff9a8f;--badb:#4a1d19}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e1526;--card:#172038;--ink:#e8eefc;--mute:#9fb0d3;--line:#2c3a5e;--blue:#7fb0ff;--blueb:#1b3260;--orange:#ffb066;--orangeb:#4a2d0f;--green:#5fdc9d;--greenb:#0f3a29;--purple:#c79bff;--purpleb:#35205a;--hl:#6b5b00;--bad:#ff9a8f;--badb:#4a1d19}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 12px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.06rem/1.6 "Atkinson Hyperlegible",system-ui,Arial,sans-serif}
+.wrap{max-width:1120px;margin:0 auto;padding:20px 18px 60px;display:grid;grid-template-columns:260px 1fr;gap:26px}
+aside{position:sticky;top:calc(env(safe-area-inset-top,0px) + 14px);align-self:start;background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:16px;font-size:.95rem;max-height:calc(100vh - 28px);overflow:auto}
+aside h2{font-size:1rem;margin:0 0 4px}
+aside p{margin:0 0 12px}
+aside ul{list-style:none;margin:0 0 12px;padding:0}
+aside li{margin:6px 0}
+aside label{display:flex;gap:8px;align-items:flex-start;cursor:pointer}
+aside input{margin-top:5px;accent-color:var(--green)}
+.nav a{display:flex;justify-content:space-between;gap:8px;color:var(--mute);text-decoration:none;padding:3px 8px;border-left:4px solid var(--line);margin:3px 0;font-size:.9rem}
+.nav a.on{color:var(--ink);border-color:var(--blue);background:var(--blueb);font-weight:700}
+main{min-width:0}
+h1{font-size:2rem;line-height:1.15;margin:4px 0 6px}
+.lead{color:var(--mute);margin:0 0 20px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:0 0 22px}
+h2.t{font-size:1.45rem;margin:0 0 4px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.time{font-size:.9rem;font-weight:700;color:var(--mute);border:1px solid var(--line);border-radius:99px;padding:1px 12px}
+.task{background:var(--blueb);border-left:5px solid var(--blue);padding:8px 12px;border-radius:6px;margin:10px 0}
+.sent{font-size:1.3rem;line-height:2.1;padding:8px 14px;border:1px dashed var(--line);border-radius:10px;margin:8px 0}
+.sent .w{cursor:pointer;padding:2px 3px;border-radius:4px;display:inline-block;line-height:1.3}
+.sent .w:hover{background:var(--hl)}
+.w.c{outline:3px solid var(--blue);outline-offset:2px;border-radius:99px;padding:2px 9px}
+.w.u{text-decoration:underline wavy var(--orange);text-decoration-thickness:2px;text-underline-offset:5px}
+.w.rs{box-shadow:0 0 0 3px var(--green) inset;border-radius:99px;padding:2px 9px}
+.w.rv{background:var(--greenb);text-decoration:underline solid var(--green) 3px;text-underline-offset:5px}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+button{font:inherit;cursor:pointer;border:2px solid var(--ink);background:var(--card);color:var(--ink);border-radius:9px;padding:5px 13px}
+button:hover{background:var(--hl)}
+button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+button.on{background:var(--ink);color:var(--card)}
+.hint{background:var(--hl);border-color:transparent}
+.rev{background:var(--green);color:#fff;border-color:transparent}
+.out{display:none;margin:8px 0;padding:9px 13px;border-radius:8px}
+.out.show{display:block}
+.out.h{background:var(--orangeb);border-left:5px solid var(--orange)}
+.out.a{background:var(--greenb);border-left:5px solid var(--green)}
+.q{border-top:1px solid var(--line);padding:12px 0}
+.q:first-of-type{border-top:0}
+.opts{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0;align-items:center}
+.opts button.sel{background:var(--blueb);color:var(--blue);border-color:var(--blue)}
+.opts button.ok{background:var(--green);color:#fff;border-color:var(--green)}
+.chk{background:var(--blue);color:var(--bg);border-color:transparent}
+.out.f{background:var(--bg);border-left:5px solid var(--ink)}
+.out.f.good{background:var(--greenb);border-color:var(--green)}
+.out.f.bad{background:var(--badb);border-color:var(--bad)}
+.opts button.no{background:var(--badb);color:var(--bad);border-color:var(--bad)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.chip{padding:5px 13px;border-radius:9px;font-weight:700;border:2px solid;display:inline-block}
+.s{background:var(--blueb);color:var(--blue);border-color:var(--blue)}
+.b{background:var(--orangeb);color:var(--orange);border-color:var(--orange)}
+.p{background:var(--greenb);color:var(--green);border-color:var(--green)}
+.g{background:var(--purpleb);color:var(--purple);border-color:var(--purple)}
+.fx{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-weight:700;font-size:1.1rem}
+.sw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:460px}
+th,td{border:1px solid var(--line);padding:6px 10px;text-align:left}
+th{background:var(--bg)}
+.built{min-height:48px;border:2px dashed var(--line);border-radius:10px;padding:8px;display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.msg{font-weight:700;margin:4px 0}
+textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:8px;padding:8px;min-height:64px;resize:vertical}
+.box{border:2px solid var(--purple);background:var(--purpleb);border-radius:10px;padding:10px 14px;margin:12px 0}
+.key{border:2px solid var(--orange);background:var(--orangeb);border-radius:10px;padding:10px 14px;margin:12px 0}
+.tag{font-size:.8rem;font-weight:700;color:var(--purple);background:var(--purpleb);border:1px solid var(--purple);border-radius:99px;padding:1px 10px;margin-right:6px;white-space:nowrap}
+.wrong{color:var(--bad);font-weight:700}.right{color:var(--green);font-weight:700}
+@media(max-width:820px){.wrap{grid-template-columns:1fr;gap:12px}
+aside{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;padding:8px 12px;max-height:38vh;font-size:.85rem}
+aside .nav,aside .tip{display:none}aside p{margin-bottom:6px}aside li{margin:2px 0}h1{font-size:1.6rem}section{padding:16px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+<style>
+/* check / feedback controls */
+.chk{background:var(--blue);color:var(--bg);border-color:transparent}
+.chk:hover{background:var(--ink);color:var(--bg)}
+.out.f{background:var(--bg);border-left:5px solid var(--ink)}
+.out.f.good{background:var(--greenb);border-color:var(--green)}
+.out.f.bad{background:var(--badb);border-color:var(--bad)}
+.ctl{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.tries{color:var(--mute);font-size:.9rem}
+.opts{align-items:center}
+.opts button.sel{background:var(--blueb);color:var(--blue);border-color:var(--blue)}
+button:disabled{opacity:.65;cursor:default;pointer-events:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<aside aria-label="Learning objective and success criteria">
+  <h2>Objective</h2>
+  <p>I can use the zero conditional to explain facts and cause and effect in a report about our school.</p>
+  <h2>Success criteria</h2>
+  <ul>
+    <li><label><input type="checkbox"><span>I can tell when a sentence states a <b>rule or fact that is always true</b>, not a one-off event.</span></label></li>
+    <li><label><input type="checkbox"><span>I can write the formula: <b>If + present simple, present simple</b>.</span></label></li>
+  </ul>
+  <div class="nav" id="nav">
+    <a href="#starter">Starter <span>4</span></a><a href="#discover">Discover <span>5</span></a><a href="#formula">Formula <span>6</span></a><a href="#guided">Guided <span>7</span></a><a href="#indep">Independent <span>6</span></a><a href="#exit">Exit check <span>2</span></a>
+  </div>
+  <p class="tip" style="font-size:.8rem;color:var(--mute);margin:8px 0 0">Tick each box when you feel confident.</p>
+</aside>
+
+<main>
+<h1>Writing about our school: the zero conditional</h1>
+<p class="lead">Year 7 · 30 minutes · Non-chronological report: <i>A guide to our school</i></p>
+<section id="who"><h2 class="t">Your details</h2>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><input id="sn" type="text" placeholder="First name" aria-label="First name"><input id="sc" type="text" placeholder="Class (for example 7B)" aria-label="Class"></div>
+<p style="margin:8px 0 0;color:var(--mute);font-size:.9rem">Fill this in first. Answer each question and press Check. If you are not right, you get a hint and one more try. After that you see the explanation. At the end of the lesson, press “Submit my answers” at the bottom of the page.</p></section>
+<style>#who input{font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:8px;padding:6px 10px;min-width:180px}</style>
+
+
+<section id="starter">
+  <h2 class="t">Starter: spot the difference <span class="time">4 min</span></h2>
+  <p>A student is drafting the <span class="tag">Define and Classify</span> paragraph of the school report. Compare two sentences about fees.</p>
+  <div class="tools" role="group" aria-label="Marking tools">
+    <button id="tc" class="on">○ Circle the condition or time clue</button>
+    <button id="tu">﹏ Underline the verbs</button>
+    <button id="tx">Clear marks</button>
+  </div>
+  <div class="sent"><b>A:</b>
+    <span class="w" data-a="s">If</span> <span class="w" data-a="s">parents</span> <span class="w" data-a="sv">pay</span> <span class="w" data-a="s">fees,</span> <span class="w">the</span> <span class="w">school</span> <span class="w" data-a="v">is</span> <span class="w" data-a="v">classified</span> <span class="w">as</span> <span class="w">independent.</span></div>
+  <div class="sent"><b>B:</b>
+    <span class="w" data-a="s">Last</span> <span class="w" data-a="s">September,</span> <span class="w">parents</span> <span class="w" data-a="v">paid</span> <span class="w">fees</span> <span class="w">for</span> <span class="w">the</span> <span class="w">first</span> <span class="w">time.</span></div>
+  <div class="task"><b>Your turn:</b> Which sentence states a general fact that is true <i>every time</i>, and which describes what happened <i>once</i>?</div>
+  <div class="q" data-ans="Sentence A states a general fact: it is true every time parents pay fees. Sentence B describes one event last September. Sentence A is the zero conditional: if + present simple, present simple." data-hint="Look at the circled parts. Is there a specific time, or does the sentence work for any school at any time?">
+    <div class="opts"><span>Sentence A:</span><button data-v="1">a general fact (every time)</button><button data-v="0">one event</button></div>
+    <div class="opts"><span>Sentence B:</span><button data-v="0">a general fact (every time)</button><button data-v="1">one event</button></div>
+  </div>
+</section>
+
+<section id="discover">
+  <h2 class="t">Discover: rule or one-off? <span class="time">5 min</span></h2>
+  <div class="key"><b>Big idea:</b> use the <b>zero conditional</b> in reports for facts, rules and routines that are <u>always</u> true: <i>“If this happens, that happens.”</i> It is not for single events or predictions.</div>
+  <div id="dq"></div>
+</section>
+
+<section id="formula">
+  <h2 class="t">Learn the formula <span class="time">6 min</span></h2>
+  <div class="box">
+    <p style="margin:0 0 6px"><b>From the report:</b> <span class="chip b">If</span> <span class="chip s">pupils complete their homework,</span> <span class="chip p">they usually make better progress.</span></p>
+  </div>
+  <div class="fx"><span class="chip b">If</span>+<span class="chip s">present simple</span>,<span class="chip p">present simple</span></div>
+  <div class="sw" style="margin-top:12px"><table>
+    <tr><th>Part</th><th>What to use</th><th>Example</th></tr>
+    <tr><td>Condition (if-clause)</td><td>present simple</td><td>If pupils complete their homework,</td></tr>
+    <tr><td>Result</td><td>present simple (no <b>will</b>)</td><td>they usually make better progress.</td></tr>
+    <tr><td>Singular subject (he/she/it)</td><td>verb + <b>s</b></td><td>If a pupil feel<b>s</b> unwell, the nurse check<b>s</b> them.</td></tr>
+    <tr><td>Plural subject (they)</td><td>base verb</td><td>If pupils want a lighter lunch, they choose the salad bar.</td></tr>
+    <tr><td>Result first</td><td>no comma</td><td>Pupils make better progress if they complete their homework.</td></tr>
+  </table></div>
+  <div class="key"><b>Mistake to avoid:</b> <span class="wrong">✗ If it rains, pupils will stay in the hall.</span> <span class="right">✓ If it rains, pupils stay in the hall.</span><br><b>Tips:</b> <i>when</i> can replace <i>if</i>: “When lunchtime begins, pupils walk to the canteen.” Words like <i>usually</i>, <i>often</i> and <i>most</i> make a report sound accurate.</div>
+  <div class="task"><b>Build it</b> (Staff and Support paragraph): click the pieces in the right order.</div>
+  <div class="built" id="built" aria-live="polite"></div>
+  <div class="chips" id="pool"></div>
+  <button class="chk" id="bcheck">Check</button> <button id="breset">Start again</button> <span class="tries" id="btries" aria-live="polite"></span>
+  <div class="out f" id="bf" role="status"></div><div class="out h" id="bh"></div><div class="out a" id="ba"></div>
+</section>
+
+<section id="guided">
+  <h2 class="t">Guided practice: choose the correct forms <span class="time">7 min</span></h2>
+  <p>Each sentence belongs to a different paragraph of the school report. Choose the pair of verbs that completes it, then press Check.</p>
+  <div id="gq"></div>
+</section>
+
+<section id="indep">
+  <h2 class="t">Independent task: join the sentences <span class="time">6 min</span></h2>
+  <div class="task">Join each pair into <b>one zero conditional sentence</b> for the matching paragraph of the report. Use present simple in both parts.</div>
+  <div id="iq"></div>
+  <div class="key"><b>Challenge:</b> Choose one paragraph of your own report (Learning Experiences, The School Environment, Break Times, School Meals, Staff and Support or Why School Matters) and write one zero conditional sentence for it. Add a signpost such as <i>In addition</i> or <i>As a result</i>.</div>
+</section>
+
+<section id="exit">
+  <h2 class="t">Exit check <span class="time">2 min</span></h2>
+  <div class="sent" style="font-size:1.2rem;line-height:1.5">“If young people gain qualifications, they have more career choices.”</div>
+  <p>1. Is this a zero conditional sentence? 2. Explain how you know (mention the tenses and what kind of information it gives). 3. Which paragraph of the report would it fit in?</p>
+  <textarea aria-label="Your explanation" placeholder="Write your explanation here…"></textarea>
+  <div class="q" data-kw="1" data-ans="Yes. It uses if + present simple (gain), then present simple (have), with no “will”. It states a general fact that is true every time, which is what a report needs. It fits the Why School Matters (conclusion) paragraph." data-hint="Check both verbs. Are they the same tense? Is it about one day or every time? Think about the importance of education.">
+  </div>
+</section>
+<section id="submit"><h2 class="t">Send your answers to your teacher</h2>
+<p>Check your name and class at the top of the page, then press Submit. You can submit again if you change an answer.</p>
+<button class="chk" id="sb">Submit my answers</button><div class="out f" id="sm" role="status"></div><p style="color:var(--mute);font-size:.8rem;margin-top:14px">Worksheet version 6</p></section>
+</main>
+</div>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const SHEET_URL="https://script.google.com/macros/s/AKfycbwqIyqdOIR8rt3QhPXcePe5lJ0AXC-1FyGTJQjStvbwOPSQFaV5NHYA77ovukcR5QTAAg/exec";
+const ASSIGNMENT="Zero Conditional";
+const MAX_TRIES=2;          // attempts per question: wrong once -> hint, wrong twice -> explanation
+const PTS=[1,0.5];          // points: right first time = 1, right second time = 0.5, otherwise 0
+const KW={};
+function norm(t){return t.toLowerCase().replace(/[’‘]/g,"'").replace(/\bwhen\b/g,"if").replace(/[^a-z0-9' ]/g," ").replace(/\s+/g," ").trim()}
+function models(q){return [q.dataset.ans,...(q.dataset.alt||"").split("|")].filter(Boolean).map(t=>norm(t.replace(/<[^>]*>/g,"")))}
+function dist(a,b){const m=a.length,n=b.length;if(Math.abs(m-n)>3)return 9;let p=Array.from({length:n+1},(_,j)=>j);
+ for(let i=1;i<=m;i++){const c=[i];for(let j=1;j<=n;j++)c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));p=c}return p[n]}
+// Compare ignoring "the/a/an" and the optional "by ..." part; allow tiny spelling slips
+function core(t){return t.replace(/\bby\b(?: (?!(?:in|at|every|last|on|during|before|after|each|this|next)\b)\S+)*/g," ").replace(/\b(the|a|an)\b/g," ").replace(/\s+/g," ").trim()}
+// 0 = exact match, 1 = close match (small spelling slip), -1 = no match
+function matchModel(q,t){const ms=models(q);if(ms.includes(t))return 0;
+ const c=core(t),mc=ms.map(core);if(mc.includes(c))return 0;
+ const rot=(x,y)=>{const a=x.split(" "),b=y.split(" ");return a.length===b.length&&(" "+b.concat(b).join(" ")+" ").includes(" "+a.join(" ")+" ")};
+ if(mc.some(m=>rot(c,m)))return 0; // a phrase moved to the front or back (e.g. "Every Monday, ...")
+ return mc.some(m=>nearWords(c,m))?1:-1}
+// Close match = same words in the same order, with at most 2 words having a 1-letter slip (typo or swapped letters).
+// A slip that only adds or removes a final -s is NOT allowed, because that is a grammar error.
+function osa(a,b){const m=a.length,n=b.length,d=Array.from({length:m+1},()=>Array(n+1).fill(0));
+ for(let i=0;i<=m;i++)d[i][0]=i;for(let j=0;j<=n;j++)d[0][j]=j;
+ for(let i=1;i<=m;i++)for(let j=1;j<=n;j++){d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));
+  if(i>1&&j>1&&a[i-1]===b[j-2]&&a[i-2]===b[j-1])d[i][j]=Math.min(d[i][j],d[i-2][j-2]+1)}return d[m][n]}
+function nearWords(c,m){const a=c.split(" "),b=m.split(" ");if(a.length!==b.length)return false;let bad=0;
+ for(let i=0;i<a.length;i++){if(a[i]===b[i])continue;
+  if(a[i]===b[i]+"s"||b[i]===a[i]+"s"||osa(a[i],b[i])>1)return false;if(++bad>2)return false}return true}
+function qtext(q){const c=q.cloneNode(true);$$(".opts,.out,.ctl,textarea,button",c).forEach(x=>x.remove());
+ let t=c.textContent.replace(/\s+/g," ").trim();
+ if(!t&&q.previousElementSibling)t=q.previousElementSibling.textContent.replace(/\s+/g," ").trim();
+ return t.slice(0,110)}
+function say(q,cls,html){const f=$(".out.f",q);f.className="out f show "+cls;f.innerHTML=html}
+function read(q){
+ const opts=$$(".opts",q);
+ if(opts.length){
+  const sel=opts.map(o=>$("button.sel,button.ok,button.no",o));
+  if(sel.some(x=>!x))return{ready:false,msg:"Choose an answer first, then press Check."};
+  const ans=opts.map((o,i)=>{const l=$("span",o);return(l?l.textContent+" ":"")+sel[i].textContent}).join("; ");
+  return{ready:true,ans,ok:sel.every(b=>b.dataset.v==="1"),sel};
+ }
+ const ta=$("textarea",q)||$("textarea",q.parentNode);
+ if(!ta)return{ready:false,msg:""};
+ const raw=ta.value.trim();
+ if(!raw)return{ready:false,msg:"Write your answer first, then press Check."};
+ const r=q.dataset.kw?KW[q.dataset.kw](norm(raw)):textCheck(raw,q);
+ return{ready:true,ans:raw,ok:r.ok,msg:r.msg||"",near:!!r.near};
+}
+function mark(q,r,reveal){
+ if(!r.sel)return;
+ r.sel.forEach(b=>{b.classList.remove("sel","ok","no");b.classList.add(b.dataset.v==="1"?"ok":"no")});
+ if(reveal)$$(".opts button",q).forEach(b=>{if(b.dataset.v==="1")b.classList.add("ok")});
+}
+function end(q,r,ok){
+ const st=q._st;st.done=true;st.pts=ok?PTS[st.tries-1]:0;st.near=ok&&!!r.near;
+ mark(q,r,!ok);
+ if(ok)$(".out.h",q).classList.remove("show");
+ if(ok)say(q,"good","✓ Correct!"+(r.near?" Watch your spelling. The model answer is: "+q.dataset.ans:"")+(st.tries>1?" Well done for getting it on your second try.":""));
+ else{say(q,"bad","✗ Not quite. Read the explanation below.");
+  const a=$(".out.a",q);a.innerHTML="<b>"+(r.sel?"Explanation":"Model answer")+":</b> "+q.dataset.ans;a.classList.add("show")}
+ $$("button",q).forEach(b=>b.disabled=true);
+ const ta=$("textarea",q)||$("textarea",q.parentNode);if(ta)ta.readOnly=true;
+ $$(".w",q.parentNode).forEach(w=>{const d=w.dataset.a||"";if(d.includes("s"))w.classList.add("rs");if(d.includes("v"))w.classList.add("rv")});
+}
+function check(q){
+ const st=q._st;if(st.done)return;
+ const r=read(q);
+ if(!r.ready){say(q,"",r.msg);return}
+ st.tries++;st.ans=r.ans;
+ $(".tries",q).textContent="Attempt "+st.tries+" of "+MAX_TRIES;
+ mark(q,r,false);
+ if(r.ok)return end(q,r,true);
+ if(st.tries>=MAX_TRIES)return end(q,r,false);
+ say(q,"bad","✗ Not quite. "+(r.msg?r.msg+" ":"")+"Have another go.");
+ const h=$(".out.h",q);h.textContent="Hint: "+q.dataset.hint;h.classList.add("show");
+}
+function wire(q){
+ $$(".hint,.rev,.out",q).forEach(e=>e.remove());
+ q.insertAdjacentHTML("beforeend",'<div class="ctl"><button class="chk">Check</button><span class="tries" aria-live="polite"></span></div><div class="out f" role="status"></div><div class="out h"></div><div class="out a"></div>');
+ q._st={tries:0,done:false,pts:0,ans:""};
+ $(".chk",q).onclick=()=>check(q);
+}
+function choose(o){o.addEventListener("click",e=>{const b=e.target.closest("button");if(!b||b.disabled)return;
+ $$("button",o).forEach(x=>x.classList.remove("ok","no","sel"));b.classList.add("sel")})}
+$$(".q").forEach(wire);
+$$(".opts").forEach(choose);
+// Starter marking tools (not graded)
+let mode="c";
+$("#tc").onclick=()=>{mode="c";$("#tc").classList.add("on");$("#tu").classList.remove("on")};
+$("#tu").onclick=()=>{mode="u";$("#tu").classList.add("on");$("#tc").classList.remove("on")};
+$("#tx").onclick=()=>$$(".sent .w").forEach(w=>w.classList.remove("c","u","rs","rv"));
+$$(".sent .w").forEach(w=>w.addEventListener("click",()=>w.classList.toggle(mode)));
+$("#tc").classList.add("on");
+function build(host,items){
+ host.innerHTML=items.map(it=>`<div class="q" data-hint="${it.h}" data-ans="${it.a}"><div>${it.q}</div><div class="opts">${it.o.map((o,j)=>`<button data-v="${j===it.c?1:0}">${o}</button>`).join("")}</div></div>`).join("");
+ $$(".q",host).forEach(wire);$$(".opts",host).forEach(choose);
+}
+function buildInd(ind,alt,ph){
+ $("#iq").innerHTML=ind.map((x,i)=>`<div class="q" data-hint="${x[2]}" data-ans="${x[1]}" data-alt="${(alt&&alt[i])||""}"><b>${i+1}.</b> ${x[0]}<textarea aria-label="Your answer ${i+1}" placeholder="${ph}"></textarea></div>`).join("");
+ $$("#iq .q").forEach(wire);
+}
+
+function textCheck(raw,q){
+ const t=norm(raw),mm=matchModel(q,t),ok0=mm>=0,lead=/^(if|when)\b/i.test(raw),nocomma=lead&&!raw.includes(",");
+ if(ok0&&nocomma)return{ok:false,msg:"Almost! Add a comma after the if-part."};
+ if(ok0)return{ok:true,near:mm===1};
+ return{ok:false,msg:/\bwill\b/.test(t)?"Use present simple in the result, not “will”.":!/\bif\b/.test(t)?"Start the condition with If (or When).":nocomma?"Add a comma after the if-part.":"Check both verbs are present simple (watch the -s on singular subjects) and that no words are missing."};
+}
+KW["1"]=t=>{
+ const tense=/present simple|present tense|same tense|no will|not will/.test(t),rule=/rule|always|every time|general|routine|fact/.test(t);
+ if(tense&&rule)return{ok:true};
+ return{ok:false,msg:!tense?"Say that both verbs (gain, have) are present simple, with no “will”.":"Say that it states a general rule that is true every time."};
+};
+const alt=["A school is classified as a secondary school if it teaches pupils aged 11 to 18.","A pupil learns to solve problems if they study Computing.","A pupil goes to the library when they need a quiet place to study.","If pupils ask for help, the librarian finds suitable books.","Pupils develop teamwork skills if they work in teams."];
+const RULE="a rule (always true)",ONE="one-off or future";
+build($("#dq"),[
+ {q:"<b>1.</b> <span class='tag'>Define and Classify</span> If a school teaches boys and girls together, it is called a mixed school.",o:[RULE,ONE],c:0,h:"Does it work for any school, at any time?",a:"A rule. It is a general fact that explains a term: zero conditional."},
+ {q:"<b>2.</b> <span class='tag'>Learning Experiences</span> If pupils revise, they improve.",o:[RULE,ONE],c:0,h:"Is it true for pupils in general?",a:"A rule. A general cause and effect."},
+ {q:"<b>3.</b> <span class='tag'>The School Environment</span> Next year, the school will build a new sports hall.",o:[RULE,ONE],c:1,h:"Look at “next year” and “will”.",a:"One-off or future. It is about one planned event."},
+ {q:"<b>4.</b> <span class='tag'>Break Times</span> If pupils want a quiet break, they read in the library.",o:[RULE,ONE],c:0,h:"Is this what usually happens whenever pupils want that?",a:"A rule. Present simple in both parts."},
+ {q:"<b>5.</b> <span class='tag'>School Meals</span> Yesterday, the canteen served pasta and salad.",o:[RULE,ONE],c:1,h:"Look for the time clue and the tense.",a:"One-off. “Yesterday” and the past tense show a single event."}]);
+build($("#gq"),[
+ {q:"<b>1.</b> <span class='tag'>Learning Experiences</span> If pupils ___ their reading, their literacy skills ___.",o:["practise / improve","practised / improved","practise / will improve"],c:0,h:"Both parts need present simple. “Pupils” and “skills” are plural.",a:"<b>practise / improve</b>: plural present simple."},
+ {q:"<b>2.</b> <span class='tag'>The School Environment</span> If the weather ___ hot, pupils ___ the swimming pool.",o:["is / use","are / uses","will be / use"],c:0,h:"“The weather” is singular. “Pupils” is plural. No “will”.",a:"<b>is / use</b>: singular be, plural base verb."},
+ {q:"<b>3.</b> <span class='tag'>Break Times</span> When the break bell ___, most pupils ___ to the playground.",o:["rings / go","rang / went","will ring / go"],c:0,h:"“The bell” is singular. “Most pupils” is plural.",a:"<b>rings / go</b>: singular +s, plural base verb."},
+ {q:"<b>4.</b> <span class='tag'>School Meals</span> If pupils ___ a packed lunch, they ___ it from home.",o:["prefer / bring","prefers / brings","preferred / brought"],c:0,h:"Plural subjects in both parts. Present simple.",a:"<b>prefer / bring</b>: plural present simple."},
+ {q:"<b>5.</b> <span class='tag'>Staff and Support</span> If a pupil ___ worried, the form tutor ___ to them.",o:["feels / listens","feel / listen","will feel / listens"],c:0,h:"Both subjects are singular: add -s to both verbs.",a:"<b>feels / listens</b>: singular +s in both parts."}]);
+const ind=[
+ ["<span class='tag'>Define and Classify</span> A school teaches pupils aged 11 to 18. It is classified as a secondary school.","If a school teaches pupils aged 11 to 18, it is classified as a secondary school.","Start with If, then use a comma before the result."],
+ ["<span class='tag'>Learning Experiences</span> A pupil studies Computing. They learn to solve problems.","If a pupil studies Computing, they learn to solve problems.","Singular subject: check the -s on studies."],
+ ["<span class='tag'>The School Environment</span> Use <b>when</b>: A pupil needs a quiet place to study. They go to the library.","When a pupil needs a quiet place to study, they go to the library.","Swap “if” for “when”. Keep present simple."],
+ ["<span class='tag'>Staff and Support</span> Result first: Pupils ask for help. The librarian finds suitable books.","The librarian finds suitable books if pupils ask for help.","Put the result first. No comma before “if”."],
+ ["<span class='tag'>Why School Matters</span> Pupils work in teams. They develop teamwork skills.","If pupils work in teams, they develop teamwork skills.","Plural subjects: no -s on the verbs."]];
+buildInd(ind,alt,"Your sentence…");
+const correct=["If","a pupil needs extra support,","a teaching assistant","helps them."],cls=["b","s","p","p"];
+const order=[3,0,2,1];let got=[];
+const BHINT="Start with the word that begins the condition. The result comes after the comma.",BFORMULA="If + present simple, present simple",BEXPL="If a pupil needs extra support, a teaching assistant helps them. The word If comes first, then the condition with a comma, then the result, both in present simple.";
+// Sentence builder (graded like any other question)
+const BST={tries:0,done:false,pts:0,ans:""};
+function drawPool(){const pool=$("#pool"),bt=$("#built");pool.innerHTML="";bt.innerHTML="";
+ got.forEach(i=>{const s=document.createElement("span");s.className="chip "+cls[i];s.textContent=correct[i];bt.appendChild(s)});
+ order.forEach(i=>{if(got.includes(i))return;const b=document.createElement("button");b.textContent=correct[i];b.disabled=BST.done;b.onclick=()=>{got.push(i);drawPool()};pool.appendChild(b)});
+ $("#breset").disabled=BST.done;}
+function bsay(cls2,txt){const f=$("#bf");f.className="out f show "+cls2;f.textContent=txt}
+$("#breset").onclick=()=>{got=[];drawPool()};
+$("#bcheck").onclick=()=>{
+ if(BST.done)return;
+ if(got.length<correct.length){bsay("","Click all the pieces to build the sentence first, then press Check.");return}
+ BST.tries++;BST.ans=got.map(i=>correct[i]).join(" ");
+ $("#btries").textContent="Attempt "+BST.tries+" of "+MAX_TRIES;
+ const ok=got.every((v,k)=>v===k);
+ if(ok||BST.tries>=MAX_TRIES){
+  BST.done=true;BST.pts=ok?PTS[BST.tries-1]:0;
+  if(ok)bsay("good","✓ Correct! "+BFORMULA);
+  else{bsay("bad","✗ Not quite. Read the explanation below.");got=correct.map((_,i)=>i);
+   const a=$("#ba");a.innerHTML="<b>Explanation:</b> "+BEXPL;a.classList.add("show")}
+  $("#bcheck").disabled=true;drawPool();
+ }else{
+  bsay("bad","✗ Not quite. Have another go.");
+  const h=$("#bh");h.textContent="Hint: "+BHINT;h.classList.add("show");
+  got=[];drawPool();
+ }
+};
+drawPool();
+// Side panel highlight
+const links=$$("#nav a"),io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(l=>l.classList.toggle("on",l.getAttribute("href")==="#"+e.target.id))}),{rootMargin:"-30% 0px -60% 0px"});
+$$("main section").forEach(s=>io.observe(s));
+// Marking and submitting
+const fmt=n=>Number.isInteger(n)?String(n):n.toFixed(1);
+function statusOf(st){return (st.done?(st.pts===1?"correct, 1st try":st.pts>0?"correct, 2nd try":"not correct (explanation shown)"):st.tries?"not finished":"not answered")+(st.near?" - close match, check spelling":"")+(st.auto?" - checked on submit":"")}
+function blankCount(){let n=0;$$("main section .q").forEach(q=>{const st=q._st;if(st&&!st.done&&!read(q).ready)n++});if(!BST.done&&got.length<correct.length)n++;return n}
+function finalize(){
+ $$("main section .q").forEach(q=>{const st=q._st;if(!st||st.done)return;const r=read(q);if(!r.ready)return;
+  st.tries=Math.min(st.tries+1,MAX_TRIES);st.ans=r.ans;st.auto=true;end(q,r,r.ok)});
+ if(!BST.done&&got.length===correct.length){
+  BST.tries=Math.min(BST.tries+1,MAX_TRIES);BST.ans=got.map(i=>correct[i]).join(" ");BST.auto=true;
+  const ok=got.every((v,k)=>v===k);BST.done=true;BST.pts=ok?PTS[BST.tries-1]:0;
+  if(ok)bsay("good","✓ Correct! "+BFORMULA);else{bsay("bad","✗ Not quite. Read the explanation below.");got=correct.map((_,i)=>i);const a=$("#ba");a.innerHTML="<b>Explanation:</b> "+BEXPL;a.classList.add("show")}
+  $("#bcheck").disabled=true;drawPool();}
+}
+function summary(){
+ let earned=0,total=0,unfinished=0;const lines=[];
+ const add=(label,text,st,live)=>{total++;earned+=st.pts;if(!st.done)unfinished++;
+  lines.push("["+label+"]"+(text?" "+text:"")+" -> "+(st.ans||live||"no answer")+" | "+statusOf(st)+" | "+st.pts+" pt")};
+ $$("main section").forEach(sec=>{
+  if(sec.id==="submit"||sec.id==="who")return;
+  const title=$("h2",sec).childNodes[0].textContent.trim();
+  $$(".q",sec).forEach((q,i)=>{const ta=$("textarea",q)||$("textarea",q.parentNode);
+   add(title+" Q"+(i+1),qtext(q),q._st,(!q._st.tries&&ta&&ta.value.trim())?"(not checked) "+ta.value.trim():"")});
+  if(sec.id==="formula")add("Sentence builder","",BST,"");
+ });
+ return{earned,total,unfinished,answers:lines.join("\n")};
+}
+let warned=false;
+$("#sb").addEventListener("click",()=>{
+ const m=$("#sm"),name=$("#sn").value.trim(),klass=$("#sc").value.trim();
+ if(!name||!klass){m.className="out f show bad";m.textContent="Please type your first name and class in the Your details box at the top.";$("#who").scrollIntoView();return}
+ const blank=blankCount();
+ if(blank>0&&!warned){warned=true;m.className="out f show bad";
+  m.textContent=blank+" question"+(blank>1?"s have":" has")+" no answer yet. Press Submit again if you want to send your answers as they are. Answers you picked or typed but did not check will be marked when you submit.";return}
+ warned=false;finalize();
+ const s=summary();
+ const btn=$("#sb");btn.disabled=true;m.className="out f show";m.textContent="Sending…";
+ fetch(SHEET_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},
+  body:JSON.stringify({assignment:ASSIGNMENT,name:name,class:klass,lesson:document.title,score:s.earned,total:s.total,percent:Math.round(s.earned/s.total*100),answers:s.answers})})
+ .then(()=>{m.className="out f show good";m.textContent="✓ Sent! Your score: "+fmt(s.earned)+" out of "+s.total+" ("+Math.round(s.earned/s.total*100)+"%). Your teacher can now see your answers.";btn.disabled=false})
+ .catch(()=>{m.className="out f show bad";m.textContent="Could not send. Check your internet connection and try again.";btn.disabled=false});
+});
+</script>
+</body>
+</html>
